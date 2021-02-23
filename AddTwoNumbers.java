@@ -1,20 +1,31 @@
 import java.util.Scanner;
-
-import javax.swing.JOptionPane;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 public class AddTwoNumbers {
 
     public static void main(String[] args){
  
         int result = 0 ;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter 2 numbers to be added");
+        System.out.println("Enter numbers to be added seperated by ',' ");
         String num = sc.nextLine();
         String[] numArray = num.split(",");
 
-        for (int i=0;i<numArray.length;i++) {
-            result = result + Integer.parseInt(numArray[i]);
-        }
-   
-        System.out.println("Result is "+result );   
+
+      try{
+              for (int i=0;i<numArray.length;i++) {
+                    result = result + Integer.parseInt(numArray[i]);
+                }
+            }
+           catch(Exception e) {
+               System.out.println("");
+           }
+
+           if (result >=1000) {
+               result = result-1000;
+
+           }
+           
+            System.out.println("Result is "+result );  
         sc.close();
     }}
